@@ -1,0 +1,37 @@
+{
+  "name": "webrtc-conference",
+  "version": "1.0.0",
+  "description": "WebRTC Conference Server with OpenSSL 3.5.3 HTTPS support",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "setup": "node setup.js",
+    "get-ip": "get-ip.bat",
+    "test-certs": "openssl x509 -in cert/cert.pem -text -noout"
+  },
+  "keywords": [
+    "webrtc",
+    "conference",
+    "video-chat",
+    "socket.io",
+    "https",
+    "openssl"
+  ],
+  "author": "WebRTC Conference",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.5",
+    "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "openssl": ">=3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  }
+}

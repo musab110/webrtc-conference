@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WeRTC Conference</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>مؤتمر الفيديو المصغّر</h1>
+    </header>
+
+    <main>
+      <section id="lobby">
+        <input id="nameInput" placeholder="اسمك" />
+        <button id="createBtn">إنشاء غرفة</button>
+        <input id="roomInput" placeholder="أدخل رمز الغرفة أو رابط" />
+        <button id="joinBtn">طلب الانضمام</button>
+        <p id="lobbyMsg"></p>
+      </section>
+
+      <section id="room" hidden>
+        <div class="room-top">
+          <div>الغرفة: <span id="roomId"></span></div>
+          <div>رابط الدعوة: <input id="inviteLink" readonly /></div>
+          <div>أنت: <span id="myName"></span></div>
+          <div id="hostControls" hidden>
+            <button id="closeRoomBtn">إغلاق الغرفة</button>
+          </div>
+        </div>
+
+        <div class="videos" id="videos">
+          <!-- هذا هو الفيديو الخاص بالمستخدم المحلي، يتم التعامل معه الآن بشكل صحيح في client.js -->
+          <div class="videoBox self">
+            <video id="localVideo" autoplay playsinline muted></video>
+            <div class="label">أنا</div>
+            <div class="controls">
+              <button id="toggleAudio">كتم/تشغيل صوتي</button>
+              <button id="toggleVideo">إيقاف/تشغيل كام</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- تم إلغاء ميزة عرض المشاركين وميزة المحادثة -->
+      </section>
+
+      <div id="joinNotify" style="display:none;position:fixed;top:0;left:0;right:0;background:#ffc;padding:12px 24px;z-index:9999;text-align:center;box-shadow:0 2px 8px #0002;">
+        <span id="notifyText"></span>
+        <button id="notifyAccept">قبول</button>
+        <button id="notifyReject">رفض</button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+  <!-- <script>
+  const toggleVideoBtn = document.getElementById('toggleVideo');
+</script> -->
+</body>
+</html>
